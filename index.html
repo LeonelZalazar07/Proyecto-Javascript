@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./estilos.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Simulador de ventas de zapatillas</h1>
+	
+	<!-- Aquí irá el formulario -->
+	<div class="formulario-container">
+        <form onsubmit="calcularCosto(event)">
+        <fieldset>
+            <legend>Seleccione las zapatillas:</legend>
+            <label for="nike">Nike $100</label>
+            <input type="number" id="nike" name="nike" min="0" value="0"><br>
+            <label for="adidas">Adidas $90</label>
+            <input type="number" id="adidas" name="adidas" min="0" value="0"><br>
+            <label for="puma">Puma $80</label>
+            <input type="number" id="puma" name="puma" min="0" value="0"><br>
+            <label for="fila">Fila $70</label>
+            <input type="number" id="fila" name="fila" min="0" value="0"><br>
+        </fieldset>
+        <fieldset>
+            <legend>Seleccione la cantidad de cuotas:</legend>
+            <select id="cuotas" name="cuotas">
+                <option value="1">1 cuota</option>
+                <option value="3">3 cuotas</option>
+                <option value="6">6 cuotas</option>
+                <option value="9">9 cuotas</option>
+                <option value="12">12 cuotas</option>
+            </select>
+        </fieldset>
+        <input type="submit" value="Calcular costo total">
+    </form>
+    </div>
+    
+
+	<!-- Aquí se mostrará el resultado del cálculo -->
+
+    <script>
+        function calcularCosto(event) {
+                event.preventDefault(); // Evita el envío del formulario
+                const nike = parseInt(document.getElementById('nike').value) || 0;
+                const adidas = parseInt(document.getElementById('adidas').value) || 0;
+                const puma = parseInt(document.getElementById('puma').value) || 0;
+                const fila = parseInt(document.getElementById('fila').value) || 0;
+                const cuotas = parseInt(document.getElementById('cuotas').value) || 1;
+                const costoTotal = nike*100 + adidas*90 + puma*80 + fila*70;
+                let costoCuota;
+                switch (cuotas) {
+                    case 3:
+                        costoCuota = costoTotal/3;
+                        break;
+                    case 6:
+                        costoCuota = costoTotal/6;
+                        break;
+                    case 9:
+                        costoCuota = costoTotal/9;
+                        break;
+                    case 12:
+                        costoCuota = costoTotal/12;
+                        break;
+                    default:
+                        costoCuota = costoTotal;
+                        break;
+                }
+                document.getElementById('resultado').innerHTML = `El costo total es $${costoTotal} y cada cuota es de $${costoCuota}`;
+}
+    </script>
+
+<div id="resultado" class="resultado"></div>
+</body>
+</html>

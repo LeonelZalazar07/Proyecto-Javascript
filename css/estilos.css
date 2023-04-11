@@ -1,0 +1,34 @@
+body{
+    background-color: darkslategray;
+}
+
+h1{
+    text-align: center;
+    color: white;
+
+}
+
+.formulario-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+    background: wheat;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+
+  .resultado{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    color: white;
+  }
